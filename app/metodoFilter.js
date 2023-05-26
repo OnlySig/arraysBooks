@@ -1,6 +1,6 @@
 const botoesAll = document.querySelectorAll('.btn')
 
-botoesAll.forEach(btn => btn.addEventListener('click', (event)=>{
+botoesAll.forEach(btn => btn.addEventListener('click', (event)=>{ 
     filtraLivros(event.target.value)
 }))
 

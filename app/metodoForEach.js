@@ -1,11 +1,14 @@
 const elementosLivros = document.querySelector("#livros")
+const spanLivros = document.querySelector('#valor_total_livros_disponiveis')
 
 function exibirLivros(listaLivros) {
     elementosLivros.innerHTML = ''
+    spanLivros.innerHTML = ''
     listaLivros.forEach(livro => {
+        let disponibilidade = livro.quantidade > 0 ? 'livro__imagens' : 'livro__imagens indisponivel' // usando operador ternário
         elementosLivros.innerHTML += `
         <div class="livro">
-        <img class="livro__imagens " src="${livro.imagem}"
+        <img class="${disponibilidade}" src="${livro.imagem}"
           alt="${livro.alt}" />
         <h2 class="livro__titulo">
           ${livro.titulo}
@@ -19,3 +22,11 @@ function exibirLivros(listaLivros) {
         `
     });
 }
+
+// function verificaDisponivel(livro) {
+//     if(livro.quantidade > 0) {
+//         return 'livro__imagens'
+//     } else {
+//         return 'livro__imagens indisponivel'
+//     }
+// }
